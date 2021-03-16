@@ -35,7 +35,9 @@ function generaNumeri (min, max){
 // funzioni
 
 
-numeriCpu = generaNumeri(1, 10);
+
+
+numeriCpu = generaNumeri(1, 100);
 
 console.log(numeriCpu);
 
@@ -53,8 +55,13 @@ for(var i = 0; i < 5; i++){
   numeroScelto = parseInt(prompt("inserisci i numeri"));
 
   // 3 il software dice quanti e quali sono stati indovinati
+  if ( isNaN(numeroScelto)){
 
-  if (numeriCpu.includes(numeroScelto)){
+    alert("Devi inserire solo numeri");
+
+    i -= 1;
+
+  } else if (numeriCpu.includes(numeroScelto)){
 
     numeriIndovinati.push(numeroScelto);
 
