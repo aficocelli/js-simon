@@ -12,20 +12,35 @@ var numeriIndovinati = [];
 var numero;
 var numeroScelto;
 
-  for (var i = 0; numeriCpu.length < 5; i++){
+// funzioni
 
-    numero = Math.floor(Math.random() * (10 - 1)) + 1;
+function generaNumeri (min, max){
 
-    if( numeriCpu.includes(numero) == false)
 
-    numeriCpu.push(numero);
+  var numeriCasuali = [];
+
+  for (var i = 0; numeriCasuali.length < 5; i++){
+
+    var numeroCasuale = Math.floor(Math.random() * (max - min)) + min;
+
+    if( numeriCasuali.includes(numeroCasuale) == false)
+
+    numeriCasuali.push(numeroCasuale);
 
   }
 
+  return numeriCasuali;
+}
 
-alert(numeriCpu);
+// funzioni
+
+
+numeriCpu = generaNumeri(1, 10);
 
 console.log(numeriCpu);
+
+alert("Memorizza i seguenti numeri: " + numeriCpu);
+
 
 
 
