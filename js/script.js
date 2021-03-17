@@ -9,8 +9,10 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 
 var numeriCpu = [];
 var numeriIndovinati = [];
+var numeriUtente = [];
 var numero;
 var numeroScelto;
+
 
 // funzioni
 
@@ -50,25 +52,42 @@ alert("Memorizza i seguenti numeri: " + numeriCpu);
 
 setTimeout(function(){
 
-for(var i = 0; i < 5; i++){
+while ( numeriUtente.length < 5){
 
   numeroScelto = parseInt(prompt("inserisci i numeri"));
 
-  // 3 il software dice quanti e quali sono stati indovinati
-  if ( isNaN(numeroScelto)){
+  if(numeriUtente.includes(numeroScelto)){
+
+    alert("Non puoi inserire lo stesso numero");
+  } else if (isNaN(numeroScelto)){
 
     alert("Devi inserire solo numeri");
 
-    i -= 1;
+  } else if ( numeroScelto > 100 || numeroScelto < 1){
 
-  } else if (numeriCpu.includes(numeroScelto)){
+    alert("Il numero deve essere compreso tra 1 e 100");
 
-    numeriIndovinati.push(numeroScelto);
+  } else{
 
+    numeriUtente.push(numeroScelto);
   }
 
 }
 
+
+
+for(var i = 0; i < 5; i++){
+
+
+  // 3 il software dice quanti e quali sono stati indovinati
+
+  if (numeriCpu.includes(numeriUtente[i])){
+
+    numeriIndovinati.push(numeriUtente[i]);
+
+  }
+}
+console.log(numeriIndovinati);
 alert("Hai indovinato " + numeriIndovinati.length + " numeri e sono i seguenti: " + numeriIndovinati);
 
 
